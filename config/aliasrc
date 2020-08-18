@@ -1,0 +1,10 @@
+alias pulse_secure3="sudo openconnect --juniper https://vpnuk3.economistgroup.com --servercert sha256:08d7f46dec5cd33088891dae7b4879839ac02ab8fe5ce05f20043da2f299b216"
+
+alias get_global_ip="curl ipinfo.io/ip | xclip -selection c | xclip -o"
+alias get_local_ip="ifconfig | grep -A 1 'wlp2s0' | grep 'inet' | awk '{print \$2}' | xclip -selection c"
+#alias get_pass ="lpass show "Google Economist" -p -c"
+alias ls="colorls --sd -a"
+alias toClipBoard="xclip -i -selection clipboard"
+alias done="notify-send -i face-wink 'done'"
+alias dc="docker-compose"
+alias fzf="/home/jaskaran/.fzf/bin/fzf"
