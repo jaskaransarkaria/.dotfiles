@@ -10,3 +10,9 @@ setxkbmap -option "ctrl:nocaps"
 
 # run dwm
 exec dwm
+
+# Set date
+while true; do
+  xsetroot -name $(echo date | awk '{print $1" " $2" " $3}' | Batt: upower -i $(upower -e | grep 'BAT') | grep -E "percentage" | awk '{print $2}')
+  sleep 10s #update every 10 secs	
+done &
