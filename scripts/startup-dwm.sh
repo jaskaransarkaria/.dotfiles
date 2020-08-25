@@ -11,14 +11,17 @@ setxkbmap -option "ctrl:nocaps"
 # Status bar
 # date
 while true; do
+    VOL=$(amixer get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
+    VOL_STATUS=$(amixer sget Master | tail -n1 | sed -r "s/.*\[(.*)\]/\1/")
     CHARGE=$(cat /sys/class/power_supply/BAT0/capacity)
-    STATUS=$(cat /sys/class/power_supply/BAT0/status)
+    BATT_STATUS=$(cat /sys/class/power_supply/BAT0/status)
     if [ "$STATUS" = "Charging" ]; then
-            BATT_STATE="🔌 $CHARGE $STATUS"
+            BATT_STATE=" $CHARGE $BATT_STATUS"
     else
-            BATT_STATE="🔋 $CHARGE $STATUS"
+            BATT_STATE="  $CHARGE $BATT_STATUS"
     fi 
-    xsetroot -name " $(date) |"
+    xsetroot -name " $(date) | $BATT_STATE |  $VOL $VOL_STATUS"
+    sleep 10
 done &
 
 # run dwm
