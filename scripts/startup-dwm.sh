@@ -8,6 +8,12 @@ xrandr --output HDMI-1 --mode 2560x1440 --left-of eDP-1
 # Remap capslock to ctrl
 setxkbmap -option "ctrl:nocaps"
 
+# Start Compositor for windows
+compton &
+
+# Start Notification daemon
+dunst &
+
 # Status bar
 # date
 while true; do
@@ -15,14 +21,17 @@ while true; do
     VOL_STATUS=$(amixer sget Master | tail -n1 | sed -r "s/.*\[(.*)\]/\1/")
     CHARGE=$(cat /sys/class/power_supply/BAT0/capacity)
     BATT_STATUS=$(cat /sys/class/power_supply/BAT0/status)
+    NOW=$(date +"%m-%d-%Y %H-%M")
     if [ "$STATUS" = "Charging" ]; then
             BATT_STATE=" $CHARGE $BATT_STATUS"
     else
             BATT_STATE="  $CHARGE $BATT_STATUS"
     fi 
-    xsetroot -name " $(date) | $BATT_STATE |  $VOL $VOL_STATUS"
+    xsetroot -name " $NOW | $BATT_STATE |  $VOL"
     sleep 10
 done &
+
+feh --bg-scale /home/jaskaran/.dotfiles/1920_1080_colours_wallpaper.png
 
 # run dwm
 exec dwm
