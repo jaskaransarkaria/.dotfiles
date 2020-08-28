@@ -31,7 +31,7 @@ while true; do
     sleep 10
 done &
 
-feh --bg-scale /home/jaskaran/.dotfiles/1920_1080_colours_wallpaper.png
+feh --bg-scale /home/jaskaran/.scripts/.1920_1080_colours_wallpaper.png
 
 # run dwm
 exec dwm
