@@ -22,10 +22,11 @@ while true; do
     CHARGE=$(cat /sys/class/power_supply/BAT0/capacity)
     BATT_STATUS=$(cat /sys/class/power_supply/BAT0/status)
     NOW=$(date +"%m-%d-%Y %H:%M")
-    if [ "$STATUS" = "Charging" ]; then
+    if [ "$BATT_STATUS" = "Charging" ]; then
             BATT_STATE=" $CHARGE $BATT_STATUS"
     else
             BATT_STATE="  $CHARGE $BATT_STATUS"
+	    /home/jaskaran/.dotfiles/scripts/battery_warning.sh $CHARGE
     fi 
     xsetroot -name " $NOW | $BATT_STATE |  $VOL"
     sleep 10
