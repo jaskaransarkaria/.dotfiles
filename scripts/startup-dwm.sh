@@ -26,7 +26,7 @@ while true; do
             BATT_STATE=" $CHARGE $BATT_STATUS"
     else
             BATT_STATE="  $CHARGE $BATT_STATUS"
-	    /home/jaskaran/.dotfiles/scripts/battery_warning.sh $CHARGE
+	    /home/jaskaran/.dotfiles/scripts/battery_warning.sh $CHARGE &
     fi 
     xsetroot -name " $NOW | $BATT_STATE |  $VOL"
     sleep 10
