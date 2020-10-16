@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+export AWS_PAGER=""
 export ZSH="/home/jaskaran/.oh-my-zsh"
 export GOPATH="/home/jaskaran/go"
 export GOBIN="$GOPATH/bin"
