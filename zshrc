@@ -133,6 +133,7 @@ source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(dirname $(gem which colorls))/tab_complete.sh
 fpath=($fpath ~/.zsh/completion)
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #export MANPATH="/usr/local/man:$MANPATH"
 
 
@@ -156,7 +157,6 @@ fpath=($fpath ~/.zsh/completion)
 #
 # Example aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/jaskaran/.sdkman"
@@ -164,3 +164,14 @@ export SDKMAN_DIR="/home/jaskaran/.sdkman"
 
 # added by travis gem
 [ ! -s /home/jaskaran/.travis/travis.sh ] || source /home/jaskaran/.travis/travis.sh
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/jaskaran/economist/RELAx/rle-metric-feeder/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/jaskaran/economist/RELAx/rle-metric-feeder/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/jaskaran/economist/RELAx/rle-metric-feeder/node_modules/tabtab/.completions/sls.zsh ]] && . /home/jaskaran/economist/RELAx/rle-metric-feeder/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /home/jaskaran/economist/RELAx/rle-metric-feeder/node_modules/tabtab/.completions/slss.zsh ]] && . /home/jaskaran/economist/RELAx/rle-metric-feeder/node_modules/tabtab/.completions/slss.zsh
+
