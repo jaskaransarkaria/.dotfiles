@@ -10,3 +10,4 @@ alias dc="docker-compose"
 alias fzf="/home/jaskaran/.fzf/bin/fzf"
 alias cat="/usr/bin/bat -p"
 alias mictl="microk8s kubectl"
+alias lg=lazygit
