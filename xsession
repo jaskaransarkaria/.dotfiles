@@ -1,1 +1,1 @@
-./.dotfiles/scripts/startup-dwm.sh
+.utils/.dotfiles/scripts/startup-dwm.sh
