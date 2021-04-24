@@ -35,7 +35,7 @@ dunst &
 feh --bg-scale /home/jaskaran/utils/.dotfiles/scripts/.1920_1080_colours_wallpaper.png
 exec dwmblocks &
 # run dwm
-exec dwm
+dbus-launch --sh-syntax --exit-with-x11 dwm
 
 # Set date
 #while true; do
