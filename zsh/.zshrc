@@ -91,9 +91,13 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# delete key deletes	
-#bindkey '^[[3~' delete-char
-#bindkey '^[3;5~' delete-char
+# ctrl + arrows, delete, home and end keys	
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey '^R' history-incremental-search-backward
 
 # up and down keys for history search ?
 # bindkey '^[[A' history-substring-search-up
