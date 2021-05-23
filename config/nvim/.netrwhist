@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/jaskaran/.config/nvim/plug-config'
+let g:netrw_dirhist_0='/home/jaskaran/.config/nvim'
+let g:netrw_dirhist_9='/home/jaskaran/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zdharma-SLASH-fast-syntax-highlighting'
+let g:netrw_dirhist_8='/home/jaskaran/utils/.dotfiles/zsh/plugins'
+let g:netrw_dirhist_7='/home/jaskaran/utils/.dotfiles/config'
+let g:netrw_dirhist_6='/home/jaskaran/utils/.dotfiles/zsh/plugins'
+let g:netrw_dirhist_5='/home/jaskaran/utils/.dotfiles/scripts/dwmblocks-scripts'
+let g:netrw_dirhist_4='/etc/portage/package.use'
+let g:netrw_dirhist_3='/home/jaskaran/.config'
+let g:netrw_dirhist_2='/home/jaskaran/utils/.dotfiles/config/dunst'

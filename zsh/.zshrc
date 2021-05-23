@@ -98,10 +98,11 @@ bindkey  "^[[3~"  delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey '^R' history-incremental-search-backward
+#bindkey '^[[A' history-substring-search-up
+#bindkey '^[[B' history-substring-search-down
 
-# up and down keys for history search ?
-# bindkey '^[[A' history-substring-search-up
-# bindkey '^[[B' history-substring-search-down
+# OMZ plugins (kubectl) fail with permissions error without this
+export ZSH_CACHE_DIR="/home/jaskaran/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/cache"
 
 # Plugins
 # antibody plugin manager
@@ -126,4 +127,13 @@ antibody bundle "
 	ohmyzsh/ohmyzsh path:plugins/pip
 	ohmyzsh/ohmyzsh path:plugins/man
 	"
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /home/jaskaran/utils/fzf/shell/completion.zsh
+source /home/jaskaran/utils/fzf/shell/key-bindings.zsh
+# set up fzf
+export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g \"\""     # Find hidden files/ dirs
+export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g \"\""
+export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --style numbers,changes --color=always --style=header,grid --line-range :300 {}'"
 

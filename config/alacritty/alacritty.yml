@@ -1,0 +1,31 @@
+background_opacity: 0.95
+
+font:
+  normal:
+    family: Caskaydia Cove Nerd Font
+    style: Regular
+
+  bold:
+    family: Caskaydia Cove Nerd Font
+    style: Bold
+
+  italic:
+    family: Caskaydia Cove Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: Caskaydia Cove Nerd Font
+    style: Bold Italic
+
+  size: 11
+
+  
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+
+live_config_reload: true
+

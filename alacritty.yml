@@ -1,8 +1,0 @@
-#background opacity
-background_opacity: 0.95
-
-font:
-  # Point size
-  size: 10.0
-#mouse_bindings:
-#  - { mouse: Middle, action: PasteSelection }
