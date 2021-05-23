@@ -6,3 +6,4 @@ I manage my dotfiles with [rcm](https://github.com/thoughtbot/rcm). Also see [he
 - `rcup` - updates all the dotfiles
 - `rcdn <filename>` - removes the symlink
 
+Note: This repo must remain PRIVATE untill the npm token (which is commited in npmrc) is cycled.
