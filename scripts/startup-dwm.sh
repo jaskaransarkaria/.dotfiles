@@ -14,31 +14,8 @@ compton &
 # Start Notification daemon
 dunst &
 
-# Status bar
-# date
-#while true; do
-#   VOL=$(amixer get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
-#    VOL_STATUS=$(amixer sget Master | tail -n1 | sed -r "s/.*\[(.*)\]/\1/")
-#    CHARGE=$(cat /sys/class/power_supply/BAT0/capacity)
-#    BATT_STATUS=$(cat /sys/class/power_supply/BAT0/status)
-#    NOW=$(date +"%m-%d-%Y %H:%M")
-#    if [ "$BATT_STATUS" = "Charging" ]; then
-#            BATT_STATE=" $CHARGE $BATT_STATUS"
-#    else
-#            BATT_STATE="  $CHARGE $BATT_STATUS"
-#	    /home/jaskaran/.dotfiles/scripts/battery_warning.sh $CHARGE &
-#    fi 
-#    xsetroot -name " $NOW | $BATT_STATE |  $VOL"
-#    sleep 10
-#done &
-
 feh --bg-scale /home/jaskaran/utils/.dotfiles/scripts/.1920_1080_colours_wallpaper.png
 exec dwmblocks &
 # run dwm
 dbus-launch --sh-syntax --exit-with-x11 dwm
 
-# Set date
-#while true; do
-#  xsetroot -name $(echo date | awk '{print $1" " $2" " $3}' | Batt: upower -i $(upower -e | grep 'BAT') | grep -E "percentage" | awk '{print $2}')
- # sleep 10s #update every 10 secs	
-#done &

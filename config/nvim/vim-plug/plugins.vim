@@ -30,7 +30,17 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Navigate and manipulate files in a tree view.
   Plug 'lambdalisue/fern.vim'
 
-  " emment for html and css completion and emments
-  Plug 'mattn/emmet-vim'  
+  " emmet for html and css completion and emmets
+  Plug 'mattn/emmet-vim'
+
+  " svelte js syntax highlighting
+  Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
+  " prettier linter
+  " post install (yarn install | npm install) then load plugin only for editing supported files
+  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+
+  " typescript plugin
+  Plug 'HerringtonDarkholme/yats.vim'
 
 call plug#end()
