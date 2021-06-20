@@ -43,4 +43,12 @@ call plug#begin('~/.local/share/nvim/plugged')
   " typescript plugin
   Plug 'HerringtonDarkholme/yats.vim'
 
+  " JS and TS plugins
+  Plug 'pangloss/vim-javascript'    " JavaScript support
+  Plug 'leafgarland/typescript-vim' " TypeScript syntax
+  Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+  
+  " GraphQL plugin
+  Plug 'jparise/vim-graphql'        " GraphQL syntax
+
 call plug#end()
