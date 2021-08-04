@@ -51,4 +51,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " GraphQL plugin
   Plug 'jparise/vim-graphql'        " GraphQL syntax
 
+  " Go plugin https://github.com/fatih/vim-go
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()

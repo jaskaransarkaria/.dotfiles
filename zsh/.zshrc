@@ -43,7 +43,9 @@ zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # Correction
-setopt correctall
+# setopt correctall # corrects commands and arguments
+unsetopt correct_all
+setopt correct # this corrects only the arguments
 setopt autocd
 setopt extendedglob
 setopt always_to_end # move cursor to end if word had one match
@@ -74,7 +76,7 @@ alias ls="ls -a --color=auto"
 alias toClipBoard="xclip -i -selection clipboard"
 
 # Vi mode
-bindkey -v # switch between INSERT and NORMAL mode with `esc`
+# bindkey -v # switch between INSERT and NORMAL mode with `esc`
 export KEYTIMEOUT=1
 
 # Load Vi cursor plugin

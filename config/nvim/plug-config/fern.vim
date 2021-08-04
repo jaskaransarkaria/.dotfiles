@@ -1,5 +1,6 @@
 " Custom settings and mappings.
 let g:fern#disable_default_mappings = 1
+let g:fern#default_hidden=1
 
 noremap <silent> <Leader>f :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=
 
@@ -20,7 +21,7 @@ function! FernInit() abort
   nmap <buffer> h <Plug>(fern-action-hidden-toggle)
   nmap <buffer> r <Plug>(fern-action-reload)
   nmap <buffer> k <Plug>(fern-action-mark-toggle)
-  nmap <buffer> b <Plug>(fern-action-open:split)
+  nmap <buffer> vv <Plug>(fern-action-open:split)
   nmap <buffer> v <Plug>(fern-action-open:vsplit)
   nmap <buffer><nowait> < <Plug>(fern-action-leave)
   nmap <buffer><nowait> > <Plug>(fern-action-enter)

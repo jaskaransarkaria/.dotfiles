@@ -42,3 +42,7 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
+
+" Maps quick save to leader - s
+noremap <Leader>s :update<CR>           
+
