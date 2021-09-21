@@ -5,6 +5,7 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 fpath=(
 	$HOME/utils/.dotfiles/zsh/plugins/
 	$HOME/.cache/antibody/
+	$HOME/utils/.dotfiles/zsh/.zshfn
 	$fpath
 )
 
@@ -81,6 +82,9 @@ export KEYTIMEOUT=1
 
 # Load Vi cursor plugin
 autoload -Uz cursor_mode; cursor_mode
+
+# load zsh fn to display current git branch
+autoload -Uz git_current_branch
 
 # Vim keys for menuselect
 bindkey -M menuselect 'h' vi-backward-char
