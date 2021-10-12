@@ -27,8 +27,8 @@ fi
 
 # Prompt
 autoload -Uz promptinit
-promptinit
-prompt gentoo
+#promptinit
+#prompt gentoo
 
 # provides a menu list from where we can highlight and select completion results
 zmodload -i zsh/complist
@@ -71,7 +71,7 @@ zstyle ':vcs_info:*' enable git
 PS1='%F{98}jaskaran %F{green}%c %F{yellow}→ %F{99} '
 
 # alias
-alias cat="bat"
+alias cat="batcat"
 alias ls="ls -a --color=auto"
 alias toClipBoard="xclip -i -selection clipboard"
 
@@ -131,14 +131,18 @@ antibody bundle "
 	unixorn/kubectx-zshplugin
 	"
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /home/jaskaran/utils/fzf/shell/completion.zsh
-source /home/jaskaran/utils/fzf/shell/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+
 # set up fzf
 export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g \"\""     # Find hidden files/ dirs
 export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g \"\""
-export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --style numbers,changes --color=always --style=header,grid --line-range :300 {}'"
+export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --style numbers,changes --color=always --style=header,grid --line-range :300 {}'"
+
+# set up nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -146,3 +150,7 @@ if [ -f '/home/jaskaran/utils/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ja
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc'; fi
+
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+autoload -Uz git_current_branch
