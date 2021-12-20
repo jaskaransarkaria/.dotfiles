@@ -23,7 +23,7 @@ set autoindent                          " Good auto indent
 set laststatus=0                        " Always display the status line
 set number                              " Line numbers
 set numberwidth=2												" Minimum number of columns reserved for the gutter
-set colorcolumn=80,120                  " comma separated line ruler for character width
+set colorcolumn=80,110                  " comma separated line ruler for character width
 set cursorline                          " Enable highlighting of the current line
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set nobackup                            " This is recommended by coc

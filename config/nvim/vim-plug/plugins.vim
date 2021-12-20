@@ -55,6 +55,5 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   " Terraform plugin
-  Plug 'hashivim/vim-terraform'  
-
+  Plug 'hashivim/vim-terraform'
 call plug#end()

@@ -1,0 +1,3 @@
+function bichard7-sandbox-shared() {
+  /home/jaskaran/utils/aws-vault-linux-amd64 exec "bichard7-sandbox-shared" -- "$@"
+}

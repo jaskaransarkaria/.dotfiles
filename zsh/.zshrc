@@ -8,6 +8,8 @@ fpath=(
 	$fpath
 )
 
+export PATH=$PATH:/usr/local/go/bin:/usr/bin/nomad:/home/jaskaran/.local/bin
+export GO111MODULE=auto
 # Notes
 # The autoload command load a file containing shell commands. To find this file, Zsh will look in the directories of the Zsh file search path, defined in the variable $fpath, and search a file called compinit.
 
@@ -74,6 +76,18 @@ PS1='%F{98}jaskaran %F{green}%c %F{yellow}→ %F{99} '
 alias cat="batcat"
 alias ls="ls -a --color=auto"
 alias toClipBoard="xclip -i -selection clipboard"
+alias mca="aws-vault exec mca --"
+autoload -Uz playground
+autoload -Uz bichard7-sandbox-shared
+autoload -Uz bichard7-sandbox-shared-login
+autoload -Uz bichard7-sandbox-a
+autoload -Uz bichard7-sandbox-b
+autoload -Uz bichard7-sandbox-c
+autoload -Uz bichard7-shared
+autoload -Uz bichard7-shared-login
+autoload -Uz bichard7-shared-e2e-test
+autoload -Uz bichard7-shared-load-test
+alias cpufetch="/home/jaskaran/repos/cpufetch/cpufetch"
 
 # Vi mode
 # bindkey -v # switch between INSERT and NORMAL mode with `esc`
@@ -154,3 +168,8 @@ if [ -f '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc' ]; then . '/h
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 autoload -Uz git_current_branch
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+

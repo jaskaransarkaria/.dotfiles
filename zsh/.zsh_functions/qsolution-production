@@ -1,0 +1,3 @@
+function qsolution-production() {
+  aws-vault exec qsolution-production -- "$@"
+}

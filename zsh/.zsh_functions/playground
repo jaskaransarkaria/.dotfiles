@@ -1,0 +1,3 @@
+function playground() {
+  /home/jaskaran/utils/aws-vault-linux-amd64 exec mt-playground -- "$@"
+}
