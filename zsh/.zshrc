@@ -142,7 +142,7 @@ source /home/jaskaran/utils/fzf/shell/key-bindings.zsh
 # set up fzf
 export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g \"\""     # Find hidden files/ dirs
 export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g \"\""
-export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --style numbers,changes --color=always --style=header,grid --line-range :300 {}'"
+export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:62%' --preview 'bat --style numbers,changes --color=always --style=header,grid --line-range :300 {}'"
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -150,3 +150,7 @@ if [ -f '/home/jaskaran/utils/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ja
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc'; fi
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
