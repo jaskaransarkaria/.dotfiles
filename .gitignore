@@ -3,3 +3,4 @@ zsh/.zhistory
 zsh/.zcompdump
 .zhistory
 .zcompdump
+.zcompcache/

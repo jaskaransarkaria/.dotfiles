@@ -98,8 +98,8 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # ctrl + arrows, delete, home and end keys	
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
+bindkey  "^[[1~"   beginning-of-line
+bindkey  "^[[4~"   end-of-line
 bindkey  "^[[3~"  delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
@@ -154,3 +154,5 @@ if [ -f '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc' ]; then . '/h
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
+
+source /home/jaskaran/.zshenv
