@@ -25,10 +25,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'airblade/vim-rooter'
 
   " Intelephense -- php
-  Plug 'yaegassy/coc-intelephense', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'yaegassy/coc-intelephense', {'do': 'npm install'}
 
   " Navigate and manipulate files in a tree view.
-  Plug 'lambdalisue/fern.vim'
+  Plug 'lambdalisue/fern.vim', {'branch': 'main'}
 
   " emmet for html and css completion and emmets
   Plug 'mattn/emmet-vim'

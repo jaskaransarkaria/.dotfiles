@@ -75,6 +75,7 @@ PS1='%F{98}jaskaran %F{green}%c %F{yellow}→ %F{99} '
 alias cat="bat"
 alias ls="ls -a --color=auto"
 alias toClipBoard="xclip -i -selection clipboard"
+alias jq="jq-linux64"
 
 # Vi mode
 # bindkey -v # switch between INSERT and NORMAL mode with `esc`
@@ -154,5 +155,8 @@ if [ -f '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc' ]; then . '/h
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 source /home/jaskaran/.zshenv

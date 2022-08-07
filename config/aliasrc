@@ -6,3 +6,5 @@ alias done="notify-send -i face-wink 'done'"
 alias dc="docker-compose"
 #alias fzf="/home/jaskaran/.fzf/bin/fzf"
 alias cat="bat"
+alias nvm='nocorrect nvm'
+alias tree='nocorrect tree'
