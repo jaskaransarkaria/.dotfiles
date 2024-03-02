@@ -9,7 +9,8 @@ xrandr --output HDMI-1 --mode 2560x1440 --left-of eDP-1 --refresh 144
 setxkbmap -option "ctrl:nocaps"
 
 # Start Compositor for windows
-compton &
+# compton &
+picom --daemon
 
 # Start Notification daemon
 dunst &

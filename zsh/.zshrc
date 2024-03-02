@@ -76,6 +76,9 @@ alias cat="bat"
 alias ls="ls -a --color=auto"
 alias toClipBoard="xclip -i -selection clipboard"
 alias jq="jq-linux64"
+alias httpstat="$HOME/utils/httpstat/httpstat.py"
+alias l=lvim
+alias remap-ctrl='setxkbmap -option "ctrl:nocaps"'
 
 # Vi mode
 # bindkey -v # switch between INSERT and NORMAL mode with `esc`
