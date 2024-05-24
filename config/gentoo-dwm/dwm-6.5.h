@@ -64,7 +64,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *firefoxcmd[]  = { "firefox", NULL };
 static const char *signalcmd[]  = { "signal-desktop", NULL };
-
+static const char *shutdowncmd[]  = { "sudo", "shutdown", "now", "-h", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,6 +105,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
+	{ MODKEY|ShiftMask|ControlMask,             XK_s, spawn,          SHCMD("sudo shutdown now -h") },
+	{ MODKEY|ShiftMask,             XK_l, spawn,          SHCMD("slock") },
 	/* map multimedia keys to volume and send signal to trigger dwm blocks script */
 	{ 0, XF86XK_AudioMute, 		spawn,     SHCMD("amixer -q sset Master toggle && pkill -RTMIN+11 dwmblocks") },
         { 0, XF86XK_AudioLowerVolume, 	spawn,     SHCMD("amixer -q sset Master 3%- && pkill -RTMIN+11 dwmblocks") },

@@ -16,6 +16,10 @@ picom --daemon
 dunst &
 
 feh --bg-scale /home/jaskaran/utils/.dotfiles/scripts/.1920_1080_colours_wallpaper.png
+
+# lock screen
+xautolock -time 10 -locker slock &
+
 exec dwmblocks &
 # run dwm
 dbus-launch --sh-syntax --exit-with-x11 dwm
