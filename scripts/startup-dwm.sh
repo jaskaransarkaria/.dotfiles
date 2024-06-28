@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# dwm start up script
-
 # Set monitor to be the left of the laptop screen
 xrandr --output HDMI-1 --mode 2560x1440 --left-of eDP-1 --refresh 144
 
@@ -18,7 +16,7 @@ dunst &
 feh --bg-scale /home/jaskaran/utils/.dotfiles/scripts/.1920_1080_colours_wallpaper.png
 
 # lock screen
-xautolock -time 10 -locker slock &
+/home/jaskaran/utils/.dotfiles/scripts/run-screen-autolock.sh &
 
 exec dwmblocks &
 # run dwm
