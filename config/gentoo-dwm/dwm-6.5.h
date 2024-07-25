@@ -65,11 +65,14 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *firefoxcmd[]  = { "firefox", NULL };
 static const char *signalcmd[]  = { "signal-desktop", NULL };
 static const char *shutdowncmd[]  = { "sudo", "shutdown", "now", "-h", NULL };
+static const char *joplincmd[]  = { "/home/jaskaran/binaries/Joplin-2.13.9.AppImage", NULL };
+
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,		        XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,	        XK_j, spawn,      	   {.v = joplincmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
