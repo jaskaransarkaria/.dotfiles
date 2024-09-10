@@ -4,8 +4,10 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 # The function search path ($fpath) defines a set of directories, which contain files that can be marked to be loaded automatically when the function they contain is needed for the first time.
 fpath=(
 	$HOME/utils/.dotfiles/zsh/plugins/
+	$HOME/repos/.dotfiles/zsh/plugins/
 	$HOME/.cache/antibody/
 	$HOME/utils/.dotfiles/zsh/.zshfn
+	$HOME/repos/.dotfiles/zsh/.zshfn
 	$fpath
 )
 
@@ -69,6 +71,7 @@ zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
 
 # Prompt
+# PS1='%F{yellow}jaskaran %F{red}${$(kubectx -c | cut -d "/" -f 2)} %F{blue}${$(kubens -c)} %D{%L:%M:%S} %F{green}%c %F{yellow}→ %F{99} '
 PS1='%F{98}jaskaran %F{green}%c %F{yellow}→ %F{99} '
 
 # alias
@@ -90,6 +93,12 @@ autoload -Uz cursor_mode; cursor_mode
 
 # load zsh fn to display current git branch
 autoload -Uz git_current_branch
+autoload -Uz kexec-bash
+autoload -Uz kexec-sh
+autoload -Uz gfixup
+autoload -Uz exec_node
+
+
 
 # Vim keys for menuselect
 bindkey -M menuselect 'h' vi-backward-char

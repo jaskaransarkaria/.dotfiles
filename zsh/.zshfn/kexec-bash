@@ -1,0 +1,3 @@
+function kexec_bash {
+    kubectl exec -it "$1" --container "$2" -- /bin/bash
+}
