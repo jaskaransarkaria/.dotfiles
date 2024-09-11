@@ -78,6 +78,7 @@ alias toClipBoard="xclip -i -selection clipboard"
 alias jq="jq-linux64"
 alias httpstat="$HOME/utils/httpstat/httpstat.py"
 alias l=lvim
+alias n=nvim
 alias remap-ctrl='setxkbmap -option "ctrl:nocaps"'
 
 # Vi mode
