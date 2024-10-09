@@ -71,7 +71,7 @@ vim.opt.updatetime = 300
 vim.opt.showmode = false
 
 -- comma separated line rule for character width
-vim.opt.colorcolumn = '80,120'
+-- vim.opt.colorcolumn = '80,120'
 
 -- minimum num of columns reserved for the gutter
 vim.opt.numberwidth = 2
@@ -83,7 +83,7 @@ vim.opt.laststatus = 0
 vim.opt.conceallevel = 0
 
 -- more space for displaying messages
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 0
 
 -- show cursor position at all times
 vim.opt.ruler = true
