@@ -1,0 +1,5 @@
+function exec_node {
+  local INSTANCE_ID=$(kubectl describe node $1 | grep 'ProviderID' | awk -F '/' '{print $NF}')
+  aws ssm start-session --target $INSTANCE_ID
+}
+

@@ -1,0 +1,4 @@
+function gfixup {
+  local CURR_COMMIT=$(git rev-parse HEAD)
+  git commit --fixup $CURR_COMMIT
+}
