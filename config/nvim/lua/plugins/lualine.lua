@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = { 'nvim-tree/nvim-web-devicons', 'meuter/lualine-so-fancy.nvim' },
   config = function()
     require('lualine').setup {
       options = {
@@ -32,7 +32,7 @@ return {
           },
         },
         lualine_x = { 'fileformat', 'filetype' },
-        lualine_y = { 'progress', 'searchcount' },
+        lualine_y = { 'progress', 'searchcount', 'fancy_macro' },
         lualine_z = { 'location' },
       },
       inactive_sections = {
