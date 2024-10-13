@@ -24,7 +24,7 @@ return {
         -- header = require('ascii').art.text.neovim.sharp,
         shortcut = {
           {
-            icon = '📂 ',
+            icon = '✨ ',
             desc = 'New',
             action = 'ene | startinsert',
             key = 'e',
@@ -36,7 +36,7 @@ return {
             key = 'f',
           },
           {
-            icon = '🗂️ ',
+            icon = '🎱 ',
             desc = 'Grep',
             action = 'Telescope live_grep',
             key = 'g',

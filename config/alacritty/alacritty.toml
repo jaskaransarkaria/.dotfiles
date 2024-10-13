@@ -28,4 +28,4 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
 opacity = 0.95
-startup_mode = "Fullscreen"
+# startup_mode = "Fullscreen"

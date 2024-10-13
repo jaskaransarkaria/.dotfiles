@@ -107,6 +107,18 @@ Bullets.vim is a Vim/NeoVim plugin for automated bullet lists
 
 Useful Go plugin with lots of features, including snippets, generating tests and lots more.
 
+## [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim) -- DISABLED
+
+A snazzy buffer line (with tabpage integration) for Neovim built using lua.
+
+## [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+
+A blazing fast and easy to configure Neovim statusline written in Lua.
+
+## [nvimdev/dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
+
+Fancy and Blazing Fast start screen plugin of neovim, with random quotes and tips provided by [fortune.nvim](https://github.com/rubiin/fortune.nvim)
+
 ### Colour schemes
 
 If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
