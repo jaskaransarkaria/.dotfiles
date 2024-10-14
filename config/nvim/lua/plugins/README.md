@@ -67,6 +67,12 @@ A file explorer tree for neovim written in lua
 
 Telescope is a highly extendable fuzzy finder over lists. Find, filter, preview, pick, all in lua and leverages fzf. It's more than just a "file finder", it can search many different aspects of Neovim, your workspace, LSP and more!
 
+### telescope dependencies
+
+- [jonarrien/telescope-cmdline.nvim](https://github.com/jonarrien/telescope-cmdline.nvim) use telescope from our vim ex commands and have a history too
+- [nvim-telescope/telescope-ui-select](https://github.com/nvim-telescope/telescope-ui-select.nvim)
+- [nvim-telescope/telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
+
 ## [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
 Provides a simple and easy way to use the interface for tree-sitter in Neovim and to provide some basic functionality such as highlighting, edtting and navigating
@@ -118,6 +124,10 @@ A blazing fast and easy to configure Neovim statusline written in Lua.
 ## [nvimdev/dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
 
 Fancy and Blazing Fast start screen plugin of neovim, with random quotes and tips provided by [fortune.nvim](https://github.com/rubiin/fortune.nvim)
+
+## [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
+
+Manage vim marks in a project via a short list that is hooked into telescope.
 
 ### Colour schemes
 
