@@ -1,6 +1,6 @@
 local function find_all_vim_grep(opts)
-  local vimgrepArgs = '/' .. opts.args .. '/gj' .. '`find . -path ./.git -prune -o -type f`'
-  return vim.api.nvim_cmd({ cmd = 'vimgrep', args = { vimgrepArgs } }, { output = true })
+  local vimgrepArgs = '/' .. opts.fargs[1] .. '/gj' .. '`find . -path ./.git -prune -o -type f`'
+  return vim.api.nvim_cmd({ cmd = 'vimgrep', args = { vimgrepArgs } }, { output = false })
 end
 
 vim.api.nvim_create_user_command(
