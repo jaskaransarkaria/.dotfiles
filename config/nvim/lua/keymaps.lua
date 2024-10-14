@@ -43,4 +43,6 @@ vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>', { desc = 'move to next buff
 vim.keymap.set('v', '<', '<gv', { desc = 'indent highlighted block left' })
 vim.keymap.set('v', '>', '>gv', { desc = 'indent highlighted block right' })
 
+vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Duplicate current buffer in a vertical split' })
+
 -- vim: ts=2 sts=2 sw=2 et

@@ -17,7 +17,7 @@ return {
           finder = require('telescope.finders').new_table {
             results = file_paths,
           },
-          previewer = conf.file_previewer {},
+          -- previewer = conf.file_previewer {},
           sorter = conf.generic_sorter {},
         })
         :find()
@@ -26,7 +26,10 @@ return {
     harpoon.setup {
       vim.keymap.set('n', '<leader>m', function()
         harpoon:list():add()
-      end),
+      end, { desc = '[m]ark file at cursor' }),
+      vim.keymap.set('n', '<leader>mx', function()
+        harpoon:list():clear()
+      end, { desc = '[x] clear marks' }),
       vim.keymap.set('n', '<C-e>', function()
         toggle_telescope(harpoon:list())
       end, { desc = 'Open harpoon window' }),
@@ -47,10 +50,10 @@ return {
       -- Toggle previous & next buffers stored within Harpoon list
       vim.keymap.set('n', '<leader>mp', function()
         harpoon:list():prev()
-      end),
+      end, { desc = 'Previous mark' }),
       vim.keymap.set('n', '<leader>mn', function()
         harpoon:list():next()
-      end),
+      end, { desc = 'Next mark' }),
     }
 
     harpoon:extend {

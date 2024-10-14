@@ -38,7 +38,7 @@ return {
         },
         -- Adjust your mappings
         mappings = {
-          complete = '<C-y>',
+          complete = '<Tab>',
           run_selection = '<C-CR>',
           run_input = '<CR>',
         },
