@@ -21,6 +21,33 @@ return {
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'jonarrien/telescope-cmdline.nvim' },
+  },
+  keys = {
+    { ':', '<cmd>Telescope cmdline<cr>', desc = 'Cmdline' },
+  },
+  opts = {
+    extensions = {
+      cmdline = {
+        -- Adjust telescope picker size and layout
+        picker = {
+          layout_config = {
+            width = 120,
+            height = 25,
+          },
+        },
+        -- Adjust your mappings
+        mappings = {
+          complete = '<C-y>',
+          run_selection = '<C-CR>',
+          run_input = '<CR>',
+        },
+        -- Triggers any shell command using overseer.nvim (`:!`)
+        overseer = {
+          enabled = true,
+        },
+      },
+    },
   },
   config = function()
     -- The easiest way to use Telescope, is to start by doing something like:
@@ -59,6 +86,7 @@ return {
 
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
+    pcall(require('telescope').load_extension, 'cmdline')
     pcall(require('telescope').load_extension, 'ui-select')
 
     -- See `:help telescope.builtin`
@@ -73,6 +101,7 @@ return {
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', ':', ':Telescope cmdline<CR>', { noremap = true, desc = 'Cmdline' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
