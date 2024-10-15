@@ -54,7 +54,7 @@ return {
         project = {
           enable = true,
           limit = 5,
-          icon = '󰹈 ',
+          icon = '🔭 ',
           label = 'Recent Projects',
           action = 'Telescope find_files cwd=',
         },
