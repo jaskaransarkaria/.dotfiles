@@ -1,0 +1,17 @@
+return {
+  '0xstepit/flow.nvim',
+  lazy = false,
+  priority = 1000,
+  opts = {},
+  config = function()
+    require('flow').setup {
+      dark_theme = true,
+      transparent = false,
+      high_contrast = false,
+      fluo_color = 'pink',
+      mode = 'desaturate',
+      aggressive_spell = true,
+    }
+    vim.cmd 'colorscheme flow'
+  end,
+}
