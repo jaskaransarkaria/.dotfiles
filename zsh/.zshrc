@@ -3,12 +3,12 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
 # The function search path ($fpath) defines a set of directories, which contain files that can be marked to be loaded automatically when the function they contain is needed for the first time.
 fpath=(
-	$HOME/utils/.dotfiles/zsh/plugins/
-	$HOME/repos/.dotfiles/zsh/plugins/
-	$HOME/.cache/antibody/
-	$HOME/utils/.dotfiles/zsh/.zshfn
-	$HOME/repos/.dotfiles/zsh/.zshfn
-	$fpath
+    $HOME/utils/.dotfiles/zsh/plugins/
+    $HOME/repos/.dotfiles/zsh/plugins/
+    $HOME/.cache/antibody/
+    $HOME/utils/.dotfiles/zsh/.zshfn
+    $HOME/repos/.dotfiles/zsh/.zshfn
+    $fpath
 )
 
 # Notes
@@ -23,9 +23,9 @@ autoload -Uz colors && colors
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r $HOME/utils/.dotfiles/zsh/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' $HOME/utils/.dotfiles/zsh/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
-  compinit -i
+    compinit -i
 else
-  compinit -C -i
+    compinit -C -i
 fi
 
 # Prompt
@@ -111,7 +111,7 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# ctrl + arrows, delete, home and end keys	
+# ctrl + arrows, delete, home and end keys
 bindkey  "^[[1~"   beginning-of-line
 bindkey  "^[[4~"   end-of-line
 bindkey  "^[[3~"  delete-char
@@ -147,8 +147,10 @@ antibody bundle "
 	ohmyzsh/ohmyzsh path:plugins/pip
 	ohmyzsh/ohmyzsh path:plugins/man
 	unixorn/kubectx-zshplugin
-	"
+"
 
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=1'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /home/jaskaran/utils/fzf/shell/completion.zsh
@@ -158,6 +160,23 @@ export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g \"\""     # Find hidden
 export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g \"\""
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:62%' --preview 'bat --style numbers,changes --color=always --style=header,grid --line-range :300 {}'"
 
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+--border \
+--height 40% \
+--layout=reverse \
+--color=bg+:#141a1f \
+--color=fg:#b3c1cc \
+--color=fg+:#b3c1cc \
+--color=hl:#52697a \
+--color=hl+:#52697a \
+--color=border:#3d4f5c \
+--color=info:#8cb9d9 \
+--color=marker:#ac8cd9 \
+--color=pointer:#ff007b \
+--color=prompt:#ff007b \
+--color=spinner:#ff007b \
+--color=header:#8c93d9"
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/jaskaran/utils/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jaskaran/utils/google-cloud-sdk/path.zsh.inc'; fi
@@ -166,7 +185,7 @@ if [ -f '/home/jaskaran/utils/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ja
 if [ -f '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc'; fi
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+    exec tmux
 fi
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
