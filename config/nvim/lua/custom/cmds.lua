@@ -8,13 +8,13 @@ local function get_github_permalink()
   local file_path = vim.fn.expand '%'
   local remote_url
   local main_commit_hash
+  local rel_path
 
   local git_dir = vim.fn.finddir('.git', vim.fn.expand '%:p' .. ';', 1)
 
   local rel_root = string.gsub(git_dir, '.*/(.*)/.git', '%1')
 
   local esc_rel_root = string.gsub(rel_root, '%-', '%%-')
-  local rel_path = string.gsub(file_path, '.*/' .. esc_rel_root .. '/(.*)', '%1')
 
   if rel_root ~= '.git' then
     local cd_proj_path = string.gsub(git_dir, '/.git', '')
@@ -22,6 +22,8 @@ local function get_github_permalink()
     remote_url = vim.fn.system('cd ' .. cd_proj_path .. '; git config --get remote.origin.url; cd -')
 
     main_commit_hash = vim.fn.system('cd ' .. cd_proj_path .. '; git rev-list main --first-parent | head -n 1; cd -')
+
+    rel_path = string.gsub(file_path, '.*/' .. esc_rel_root .. '/(.*)', '%1')
   else
     remote_url = vim.fn.system 'git config --get remote.origin.url'
 
@@ -30,6 +32,11 @@ local function get_github_permalink()
 
   local repo_name = string.gsub(remote_url, 'git@github.com:.*/(.*).git', '%1')
   local org_name = string.gsub(remote_url, 'git@github.com:(.*)/.*git', '%1')
+
+  if rel_root == '.git' then
+    local esc_repo_name = string.gsub(repo_name, '%-', '%%-')
+    rel_path = string.gsub(file_path, '.*/' .. esc_repo_name .. '/(.*)', '%1')
+  end
 
   local permalink = 'https://github.com/' .. org_name .. '/' .. repo_name .. '/blob/' .. main_commit_hash .. '/' .. rel_path .. '#L' .. current_line
 
