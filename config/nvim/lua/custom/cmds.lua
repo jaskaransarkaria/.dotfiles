@@ -33,8 +33,10 @@ local function get_github_permalink()
 
   local permalink = 'https://github.com/' .. org_name .. '/' .. repo_name .. '/blob/' .. main_commit_hash .. '/' .. rel_path .. '#L' .. current_line
 
-  vim.ui.open(permalink)
-  vim.fn.setreg('+', permalink)
+  local remove_newline = string.gsub(permalink, '[\n\r]', '')
+
+  vim.ui.open(remove_newline)
+  vim.fn.setreg('+', remove_newline)
 end
 
 vim.api.nvim_create_user_command(
