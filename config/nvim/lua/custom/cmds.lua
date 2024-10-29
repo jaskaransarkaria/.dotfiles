@@ -30,12 +30,13 @@ local function get_github_permalink()
     main_commit_hash = vim.fn.system 'git rev-list main --first-parent | head -n 1'
   end
 
-  local repo_name = string.gsub(remote_url, 'git@github.com:.*/(.*).git', '%1')
-  local org_name = string.gsub(remote_url, 'git@github.com:(.*)/.*git', '%1')
+  local remove_ssh_git = string.gsub(remote_url, '(.*)%.git', '%1')
+  local truncate_remote_url = string.gsub(remove_ssh_git, '.*@github.com.(.*)', '%1')
+  local repo_name = string.gsub(truncate_remote_url, '.*/(.*)', '%1')
+  local org_name = string.gsub(truncate_remote_url, '(.*)/.*', '%1')
 
   if rel_root == '.git' then
-    local esc_repo_name = string.gsub(repo_name, '%-', '%%-')
-    rel_path = string.gsub(file_path, '.*/' .. esc_repo_name .. '/(.*)', '%1')
+    rel_path = string.gsub(file_path, '.*/' .. repo_name .. '/(.*)', '%1')
   end
 
   local permalink = 'https://github.com/' .. org_name .. '/' .. repo_name .. '/blob/' .. main_commit_hash .. '/' .. rel_path .. '#L' .. current_line
