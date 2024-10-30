@@ -36,7 +36,9 @@ local function get_github_permalink()
   local org_name = string.gsub(truncate_remote_url, '(.*)/.*', '%1')
 
   if rel_root == '.git' then
-    rel_path = string.gsub(file_path, '.*/' .. repo_name .. '/(.*)', '%1')
+    local regex_match = '.*/' .. repo_name .. '/(.*)'
+    local remove_newline = string.gsub(regex_match, '[\n\r]', '')
+    rel_path = string.gsub(file_path, remove_newline, '%1')
   end
 
   local permalink = 'https://github.com/' .. org_name .. '/' .. repo_name .. '/blob/' .. main_commit_hash .. '/' .. rel_path .. '#L' .. current_line
