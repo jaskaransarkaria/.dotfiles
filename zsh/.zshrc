@@ -85,7 +85,7 @@ alias n=nvim
 alias remap-ctrl='setxkbmap -option "ctrl:nocaps"'
 
 # Vi mode
-# bindkey -v # switch between INSERT and NORMAL mode with `esc`
+bindkey -v # switch between INSERT and NORMAL mode with `esc`
 export KEYTIMEOUT=1
 
 # Load Vi cursor plugin
@@ -97,7 +97,6 @@ autoload -Uz kexec-bash
 autoload -Uz kexec-sh
 autoload -Uz gfixup
 autoload -Uz exec_node
-
 
 
 # Vim keys for menuselect
