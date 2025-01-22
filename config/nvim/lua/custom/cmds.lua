@@ -41,15 +41,18 @@ local function get_github_permalink()
     local removed = string.gsub(file_path, remove_newline, '%1')
     local esc_repo_name = string.gsub(repo_name, '%-', '%%-')
     local esc_removed = string.gsub(removed, '%-', '%%-')
+
     rel_path = string.gsub(esc_removed, '.*' .. esc_repo_name .. '/', '')
   end
 
   local permalink = 'https://github.com/' .. org_name .. '/' .. repo_name .. '/blob/' .. main_commit_hash .. '/' .. rel_path .. '#L' .. current_line
 
   local remove_newline = string.gsub(permalink, '[\n\r]', '')
+  local remove_escaped_hyphens = string.gsub(remove_newline, '%%25', '')
+  local remove_escapes = string.gsub(remove_escaped_hyphens, '%%', '')
 
-  vim.ui.open(remove_newline)
-  vim.fn.setreg('+', remove_newline)
+  vim.ui.open(remove_escapes)
+  vim.fn.setreg('+', remove_escapes)
 end
 
 vim.api.nvim_create_user_command(
