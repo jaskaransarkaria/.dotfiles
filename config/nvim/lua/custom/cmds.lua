@@ -1,5 +1,3 @@
-require 'custom.terraform-comment'
-
 local function find_all_vim_grep(opts)
   local vimgrepArgs = '/' .. opts.fargs[1] .. '/gj' .. '`find . -path ./.git -prune -o -type f`'
   return vim.api.nvim_cmd({ cmd = 'vimgrep', args = { vimgrepArgs } }, { output = false })
