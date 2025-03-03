@@ -48,4 +48,6 @@ vim.keymap.set('v', '>', '>gv', { desc = 'indent highlighted block right' })
 vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Duplicate current buffer in a vertical split' })
 
 vim.keymap.set('n', '<leader>pl', ':GetGithubPermalink<CR>', { desc = 'get the github permalink for the line under the cursor' })
+
+vim.keymap.set('n', '<leader>td', ':lua require("dap-go").debug_test()<CR>', { desc = 'debug this test nearest the cursor' })
 -- vim: ts=2 sts=2 sw=2 et
