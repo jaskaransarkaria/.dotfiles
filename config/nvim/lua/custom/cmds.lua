@@ -46,6 +46,13 @@ local function get_github_permalink()
     rel_path = string.gsub(escaped, '.*/' .. esc_repo_name .. '/(.*)', '%1')
   end
 
+  if string.match(rel_path, '/Users/') then
+    local extra_esc = string.gsub(repo_name, '%-', '%%-')
+    local pattern = '.*' .. extra_esc .. '/(.*)'
+    local remove_newline = string.gsub(pattern, '[\n\r]', '')
+    rel_path = string.gsub(file_path, remove_newline, '%1')
+  end
+
   local permalink = 'https://github.com/' .. org_name .. '/' .. repo_name .. '/blob/' .. main_commit_hash .. '/' .. rel_path .. '#L' .. current_line
 
   local remove_newline = string.gsub(permalink, '[\n\r]', '')
