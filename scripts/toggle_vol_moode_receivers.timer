@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily toggle off and on moode receivers volume to "wake" them up
+Requires=toggle-vol-moode-receivers.service
+
+[Timer]
+Unit=toggle-vol-moode-receivers.service
+OnCalendar=*-*-* 06:10:00
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily toggle off and on moode receivers volume to "wake" them up
+Wants=toggle-vol-moode-receivers.timer
+
+[Service]
+Type=oneshot
+ExecStart=/home/all/toggle_vol_moode_receivers.sh
+
+[Install]
+WantedBy=multi-user.target
