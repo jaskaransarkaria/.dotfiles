@@ -1,13 +1,10 @@
 #! /bin/zsh
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
 # The function search path ($fpath) defines a set of directories, which contain files that can be marked to be loaded automatically when the function they contain is needed for the first time.
 fpath=(
-    $HOME/utils/.dotfiles/zsh/plugins/
     $HOME/repos/.dotfiles/zsh/plugins/
-    $HOME/.cache/antibody/
-    $HOME/utils/.dotfiles/zsh/.zshfn
-    $HOME/repos/.dotfiles/zsh/.zshfn
+    $HOME/.cache/antidote/
+    $HOME/repos/.dotfiles/zsh/.zshfn/
     $fpath
 )
 
@@ -21,17 +18,17 @@ fpath=(
 # Completion
 autoload -Uz colors && colors
 autoload -Uz compinit
-typeset -i updated_at=$(date +'%j' -r $HOME/utils/.dotfiles/zsh/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' $HOME/utils/.dotfiles/zsh/.zcompdump 2>/dev/null)
+typeset -i updated_at=$(date +'%j' -r $HOME/repos/.dotfiles/zsh/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' $HOME/repos/.dotfiles/zsh/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
     compinit -i
 else
     compinit -C -i
 fi
 
-# Prompt
+# # Prompt
 autoload -Uz promptinit
 promptinit
-prompt gentoo
+prompt redhat
 
 # provides a menu list from where we can highlight and select completion results
 zmodload -i zsh/complist
@@ -59,7 +56,7 @@ setopt hist_ignore_all_dups
 # prevent history from being recorded -- prefix with whitespace
 setopt hist_ignore_space
 
-source ~/utils/.dotfiles/fonts/*.sh
+# source ~/repos/.dotfiles/fonts/*.sh
 
 # Git Prompt
 autoload -Uz vcs_info
@@ -75,12 +72,11 @@ zstyle ':vcs_info:*' enable git
 PS1='%F{98}jaskaran %F{green}%c %F{yellow}→ %F{99} '
 
 # alias
-alias cat="bat"
+# alias cat="bat"
 alias ls="ls -a --color=auto"
-alias toClipBoard="xclip -i -selection clipboard"
-alias jq="jq-linux64"
-alias httpstat="$HOME/utils/httpstat/httpstat.py"
-alias l=lvim
+# # alias toClipBoard="xclip -i -selection clipboard"
+# # alias jq="jq-linux64"
+# # alias httpstat="$HOME/utils/httpstat/httpstat.py"
 alias n=nvim
 alias remap-ctrl='setxkbmap -option "ctrl:nocaps"'
 
@@ -92,11 +88,11 @@ export KEYTIMEOUT=1
 autoload -Uz cursor_mode; cursor_mode
 
 # load zsh fn to display current git branch
-autoload -Uz git_current_branch
-autoload -Uz kexec-bash
-autoload -Uz kexec-sh
-autoload -Uz gfixup
-autoload -Uz exec_node
+# autoload -Uz git_current_branch
+# autoload -Uz kexec-bash
+# autoload -Uz kexec-sh
+# autoload -Uz gfixup
+# autoload -Uz exec_node
 
 
 # Vim keys for menuselect
@@ -119,14 +115,17 @@ bindkey "^[[1;5D" backward-word
 bindkey '^R' history-incremental-search-backward
 #bindkey '^[[A' history-substring-search-up
 #bindkey '^[[B' history-substring-search-down
-
-# OMZ plugins (kubectl) fail with permissions error without this
-export ZSH_CACHE_DIR="/home/jaskaran/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/cache"
-
+#
+# # OMZ plugins (kubectl) fail with permissions error without this
+# export ZSH_CACHE_DIR="/Users/jaskaran.sarkaria/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/cache"
+#
 # Plugins
-# antibody plugin manager
-source <(antibody init)
-antibody bundle "
+# antidote plugin manager
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+# zstyle ':antidote:compatibility-mode' 'antibody' 'on'
+# antidote load
+source <(antidote init)
+antidote bundle "
 	zdharma/fast-syntax-highlighting
 	zsh-users/zsh-autosuggestions
 	zsh-users/zsh-history-substring-search
@@ -147,47 +146,41 @@ antibody bundle "
 	ohmyzsh/ohmyzsh path:plugins/man
 	unixorn/kubectx-zshplugin
 "
-
-
+#
+#
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=1'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /home/jaskaran/utils/fzf/shell/completion.zsh
-source /home/jaskaran/utils/fzf/shell/key-bindings.zsh
+source /opt/homebrew/opt/fzf/shell/completion.zsh
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+
 # set up fzf
 export FZF_DEFAULT_COMMAND="ag --hidden --ignore .git -g \"\""     # Find hidden files/ dirs
 export FZF_CTRL_T_COMMAND="ag --hidden --ignore .git -g \"\""
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:62%' --preview 'bat --style numbers,changes --color=always --style=header,grid --line-range :300 {}'"
 
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
---border \
---height 40% \
---layout=reverse \
---color=bg+:#141a1f \
---color=fg:#b3c1cc \
---color=fg+:#b3c1cc \
---color=hl:#52697a \
---color=hl+:#52697a \
---color=border:#3d4f5c \
---color=info:#8cb9d9 \
---color=marker:#ac8cd9 \
---color=pointer:#ff007b \
---color=prompt:#ff007b \
---color=spinner:#ff007b \
---color=header:#8c93d9"
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/jaskaran/utils/google-cloud-sdk/path.zsh.inc' ]; then . '/home/jaskaran/utils/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/jaskaran/utils/google-cloud-sdk/completion.zsh.inc'; fi
+        --border \
+        --height 40% \
+        --layout=reverse \
+        --color=bg+:#141a1f \
+        --color=fg:#b3c1cc \
+        --color=fg+:#b3c1cc \
+        --color=hl:#52697a \
+        --color=hl+:#52697a \
+        --color=border:#3d4f5c \
+        --color=info:#8cb9d9 \
+        --color=marker:#ac8cd9 \
+        --color=pointer:#ff007b \
+        --color=prompt:#ff007b \
+        --color=spinner:#ff007b \
+        --color=header:#8c93d9"
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux
 fi
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-source /home/jaskaran/.zshenv
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#
+source /Users/jaskaran.sarkaria/.config/aliasrc

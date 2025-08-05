@@ -1,5 +1,5 @@
 
-live_config_reload = true
+general.live_config_reload = true
 
 # Flow colorscheme | Alacritty
 # https://github.com/0xstepit/flow.nvim
