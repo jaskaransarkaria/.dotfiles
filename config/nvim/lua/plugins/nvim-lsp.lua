@@ -193,7 +193,7 @@ return {
       'prettierd',
       'shellcheck',
       'sqlfluff',
-      'hadolint',
+      -- 'hadolint',
       'vale',
       'tflint',
     })

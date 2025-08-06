@@ -71,15 +71,6 @@ zstyle ':vcs_info:*' enable git
 # PS1='%F{yellow}jaskaran %F{red}${$(kubectx -c | cut -d "/" -f 2)} %F{blue}${$(kubens -c)} %D{%L:%M:%S} %F{green}%c %F{yellow}→ %F{99} '
 PS1='%F{98}jaskaran %F{green}%c %F{yellow}→ %F{99} '
 
-# alias
-# alias cat="bat"
-alias ls="ls -a --color=auto"
-# # alias toClipBoard="xclip -i -selection clipboard"
-# # alias jq="jq-linux64"
-# # alias httpstat="$HOME/utils/httpstat/httpstat.py"
-alias n=nvim
-alias remap-ctrl='setxkbmap -option "ctrl:nocaps"'
-
 # Vi mode
 bindkey -v # switch between INSERT and NORMAL mode with `esc`
 export KEYTIMEOUT=1
@@ -122,8 +113,6 @@ bindkey '^R' history-incremental-search-backward
 # Plugins
 # antidote plugin manager
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-# zstyle ':antidote:compatibility-mode' 'antibody' 'on'
-# antidote load
 source <(antidote init)
 antidote bundle "
 	zdharma/fast-syntax-highlighting
@@ -146,8 +135,8 @@ antidote bundle "
 	ohmyzsh/ohmyzsh path:plugins/man
 	unixorn/kubectx-zshplugin
 "
-#
-#
+
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=1'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -180,7 +169,9 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
     exec tmux
 fi
 
-# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-#
 source /Users/jaskaran.sarkaria/.config/aliasrc
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] &&\. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
