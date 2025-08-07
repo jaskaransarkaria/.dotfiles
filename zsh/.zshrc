@@ -79,11 +79,11 @@ export KEYTIMEOUT=1
 autoload -Uz cursor_mode; cursor_mode
 
 # load zsh fn to display current git branch
-# autoload -Uz git_current_branch
-# autoload -Uz kexec-bash
-# autoload -Uz kexec-sh
-# autoload -Uz gfixup
-# autoload -Uz exec_node
+autoload -Uz git_current_branch
+autoload -Uz kexec-bash
+autoload -Uz kexec-sh
+autoload -Uz gfixup
+autoload -Uz exec_node
 
 
 # Vim keys for menuselect
