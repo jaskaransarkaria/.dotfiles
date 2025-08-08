@@ -76,7 +76,8 @@ bindkey -v # switch between INSERT and NORMAL mode with `esc`
 export KEYTIMEOUT=1
 
 # Load Vi cursor plugin
-autoload -Uz cursor_mode; cursor_mode
+autoload -Uz cursor_mode
+cursor_mode
 
 # load zsh fn to display current git branch
 autoload -Uz git_current_branch
@@ -101,8 +102,8 @@ bindkey -M vicmd v edit-command-line
 bindkey  "^[[1~"   beginning-of-line
 bindkey  "^[[4~"   end-of-line
 bindkey  "^[[3~"  delete-char
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
+# bindkey "^[[1;5C" forward-word
+# bindkey "^[[1;5D" backward-word
 bindkey '^R' history-incremental-search-backward
 #bindkey '^[[A' history-substring-search-up
 #bindkey '^[[B' history-substring-search-down
@@ -128,12 +129,14 @@ antidote bundle "
 	ohmyzsh/ohmyzsh path:plugins/node
 	ohmyzsh/ohmyzsh path:plugins/npm
 	ohmyzsh/ohmyzsh path:plugins/dotenv
-	ohmyzsh/ohmyzsh path:plugins/docker
 	ohmyzsh/ohmyzsh path:plugins/kubectl
 	ohmyzsh/ohmyzsh path:plugins/python
 	ohmyzsh/ohmyzsh path:plugins/pip
 	ohmyzsh/ohmyzsh path:plugins/man
 	unixorn/kubectx-zshplugin
+	MichaelAquilina/zsh-you-should-use
+	z-shell/zsh-diff-so-fancy
+	z-shell/zsh-lsd
 "
 
 
@@ -165,13 +168,13 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
         --color=spinner:#ff007b \
         --color=header:#8c93d9"
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-    exec tmux
-fi
-
 source /Users/jaskaran.sarkaria/.config/aliasrc
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] &&\. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+fi
 
