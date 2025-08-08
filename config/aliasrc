@@ -1,6 +1,6 @@
 alias get_global_ip="curl ipinfo.io/ip | pbcopy | echo "\n" | pbpaste"
 alias get_local_ip="ifconfig | grep -A 1 'wlp2s0' | grep 'inet' | awk '{print \$2}' | pbcopy | pbpaste"
-alias ls="ls -a --color=auto"
+#alias ls="ls -a --color=auto"
 alias dc="docker-compose"
 alias cat="bat"
 ##alias nvm='nocorrect nvm'
