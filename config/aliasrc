@@ -4,5 +4,6 @@ alias get_local_ip="ifconfig | grep -A 1 'wlp2s0' | grep 'inet' | awk '{print \$
 alias dc="docker-compose"
 alias cat="bat"
 ##alias nvm='nocorrect nvm'
+alias ls="lsd -I Library"
 alias tree='nocorrect tree'
 alias n=nvim

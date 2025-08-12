@@ -153,6 +153,7 @@ return {
               ignoredMessages = {},
             },
             yamlls = {
+              -- settings = { yaml = { schemas = { kubernetes =  'https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.1-standalone/all.json'}}}
               enabled = true,
               enabledForFilesGlob = '*.{yaml,yml}',
               diagnosticsLimit = 50,
@@ -161,7 +162,13 @@ return {
               initTimeoutSeconds = 3,
               config = {
                 schemas = {
-                  kubernetes = 'templates/**',
+                  -- kubernetes = '*',
+                  -- ['https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.3/all.json'] = '*',
+                  ['https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json'] = 'workflow.{yaml,yml}',
+                },
+                schemaStore = {
+                  enable = false,
+                  url = '',
                 },
                 completion = true,
                 hover = true,
@@ -181,7 +188,19 @@ return {
       tflint = {},
       terraformls = {},
       typos_lsp = {},
-      yamlls = {},
+      yamlls = {
+        settings = {
+          yaml = {
+            schemas = {
+              ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
+              ['http://json.schemastore.org/ansible-stable-2.9'] = 'roles/tasks/*.{yml,yaml}',
+              ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
+              ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+              -- kubernetes = 'templates/**',
+            },
+          },
+        },
+      },
       -- nginx_language_server = {},
       lua_ls = {
         -- cmd = {...},
