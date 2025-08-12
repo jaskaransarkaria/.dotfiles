@@ -163,8 +163,19 @@ return {
               config = {
                 schemas = {
                   -- kubernetes = '*',
-                  -- ['https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.3/all.json'] = '*',
+                  ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
+                  ['http://json.schemastore.org/ansible-playbook'] = '*play*.{yml,yaml}',
+                  ['http://json.schemastore.org/chart'] = 'Chart.{yml,yaml}',
+                  ['https://json.schemastore.org/dependabot-v2'] = '.github/dependabot.{yml,yaml}',
+                  ['https://json.schemastore.org/gitlab-ci'] = '*gitlab-ci*.{yml,yaml}',
+                  ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*api*.{yml,yaml}',
                   ['https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json'] = 'workflow.{yaml,yml}',
+                  ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*',
+                  ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
+                  ['http://json.schemastore.org/ansible-stable-2.9'] = 'roles/tasks/*.{yml,yaml}',
+                  ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
+                  ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+                  -- ['https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.3-standalone-strict/all.json']
                 },
                 schemaStore = {
                   enable = false,
@@ -188,19 +199,7 @@ return {
       tflint = {},
       terraformls = {},
       typos_lsp = {},
-      yamlls = {
-        settings = {
-          yaml = {
-            schemas = {
-              ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
-              ['http://json.schemastore.org/ansible-stable-2.9'] = 'roles/tasks/*.{yml,yaml}',
-              ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
-              ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
-              -- kubernetes = 'templates/**',
-            },
-          },
-        },
-      },
+      yamlls = {},
       -- nginx_language_server = {},
       lua_ls = {
         -- cmd = {...},
