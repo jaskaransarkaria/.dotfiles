@@ -41,6 +41,7 @@ return {
       rego = { 'opa' },
       sql = { 'sqlfluff' },
       html = { 'htmlhint' },
+      yaml = { 'yamlls', 'helm_ls' },
     },
   },
 }

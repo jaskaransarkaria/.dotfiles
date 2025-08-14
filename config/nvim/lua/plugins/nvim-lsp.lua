@@ -139,7 +139,56 @@ return {
       cssls = {},
       bashls = {},
       dockerls = {},
-      helm_ls = {},
+      helm_ls = {
+        settings = {
+          ['helm-ls'] = {
+            logLevel = 'info',
+            valuesFiles = {
+              mainValuesFile = 'values.yaml',
+              lintOverlayValuesFile = 'values.lint.yaml',
+              additionalValuesFilesGlobPattern = 'values*.yaml',
+            },
+            helmLint = {
+              enabled = true,
+              ignoredMessages = {},
+            },
+            yamlls = {
+              -- settings = { yaml = { schemas = { kubernetes =  'https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.1-standalone/all.json'}}}
+              enabled = true,
+              enabledForFilesGlob = '*.{yaml,yml}',
+              diagnosticsLimit = 50,
+              showDiagnosticsDirectly = false,
+              path = 'yaml-language-server',
+              initTimeoutSeconds = 3,
+              config = {
+                schemas = {
+                  kubernetes = 'templates/**',
+                  -- ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
+                  -- ['http://json.schemastore.org/ansible-playbook'] = '*play*.{yml,yaml}',
+                  -- ['http://json.schemastore.org/chart'] = 'Chart.{yml,yaml}',
+                  -- ['https://json.schemastore.org/dependabot-v2'] = '.github/dependabot.{yml,yaml}',
+                  -- ['https://json.schemastore.org/gitlab-ci'] = '*gitlab-ci*.{yml,yaml}',
+                  -- ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*api*.{yml,yaml}',
+                  -- ['https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json'] = 'workflow.{yaml,yml}',
+                  -- ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*',
+                  -- ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
+                  -- ['http://json.schemastore.org/ansible-stable-2.9'] = 'roles/tasks/*.{yml,yaml}',
+                  -- ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
+                  -- ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+                  -- ['https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.3-standalone-strict/all.json']
+                },
+                schemaStore = {
+                  enable = false,
+                  url = '',
+                },
+                completion = true,
+                hover = true,
+                -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
+              },
+            },
+          },
+        },
+      },
       html = {},
       jsonls = {},
       jqls = {},
@@ -181,7 +230,7 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
-      'ansible-lint',
+      -- 'ansible-lint',
       'beautysh',
       'eslint_d',
       'jq',
@@ -193,7 +242,7 @@ return {
       'prettierd',
       'shellcheck',
       'sqlfluff',
-      'hadolint',
+      -- 'hadolint',
       'vale',
       'tflint',
     })

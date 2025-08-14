@@ -1,12 +1,9 @@
-alias get_global_ip="curl ipinfo.io/ip | xclip -selection c | xclip -o"
-alias get_local_ip="ifconfig | grep -A 1 'wlp2s0' | grep 'inet' | awk '{print \$2}' | xclip -selection c"
-alias ls="ls -a --color=auto"
-alias toClipBoard="xclip -i -selection clipboard"
-alias done="notify-send -i face-wink 'done'"
+alias get_global_ip="curl ipinfo.io/ip | pbcopy | echo "\n" | pbpaste"
+alias get_local_ip="ifconfig | grep -A 1 'wlp2s0' | grep 'inet' | awk '{print \$2}' | pbcopy | pbpaste"
+#alias ls="ls -a --color=auto"
 alias dc="docker-compose"
-#alias fzf="/home/jaskaran/.fzf/bin/fzf"
 alias cat="bat"
-alias nvm='nocorrect nvm'
+##alias nvm='nocorrect nvm'
+alias ls="lsd -I Library"
 alias tree='nocorrect tree'
-alias l=lvim
 alias n=nvim

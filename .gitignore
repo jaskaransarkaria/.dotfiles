@@ -5,4 +5,5 @@ zsh/.zcompdump
 .zcompdump
 .zcompcache/
 gitconfig
+.zsh_history
 

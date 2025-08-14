@@ -39,11 +39,13 @@ local function get_github_permalink()
     local regex_match = '.*/' .. repo_name .. '/(.*)'
     local remove_newline = string.gsub(regex_match, '[\n\r]', '')
     local removed = string.gsub(file_path, remove_newline, '%1')
-    local esc_repo_name = string.gsub(repo_name, '%-', '%%-')
+    local esc_repo_name = string.gsub(repo_name, '%-', '%%%%%%-')
+    local escape_repo_name_and_new_line = string.gsub(esc_repo_name, '[\n\r]', '')
+
     local esc_removed = string.gsub(removed, '%-', '%%-')
 
-    local escaped = string.gsub(esc_removed, '.*' .. esc_repo_name .. '/', '')
-    rel_path = string.gsub(escaped, '.*/' .. esc_repo_name .. '/(.*)', '%1')
+    local escaped = string.gsub(esc_removed, '.*' .. escape_repo_name_and_new_line .. '/', '')
+    rel_path = string.gsub(escaped, '.*/' .. escape_repo_name_and_new_line .. '/(.*)', '%1')
   end
 
   local permalink = 'https://github.com/' .. org_name .. '/' .. repo_name .. '/blob/' .. main_commit_hash .. '/' .. rel_path .. '#L' .. current_line
