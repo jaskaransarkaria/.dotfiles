@@ -139,7 +139,43 @@ return {
       cssls = {},
       bashls = {},
       dockerls = {},
-      helm_ls = {},
+      helm_ls = {
+        settings = {
+          ['helm-ls'] = {
+            logLevel = 'info',
+            valuesFiles = {
+              mainValuesFile = 'values.yaml',
+              lintOverlayValuesFile = 'values.lint.yaml',
+              additionalValuesFilesGlobPattern = 'values*.yaml',
+            },
+            helmLint = {
+              enabled = true,
+              ignoredMessages = {},
+            },
+            yamlls = {
+              -- settings = { yaml = { schemas = { kubernetes =  'https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.22.1-standalone/all.json'}}}
+              enabled = true,
+              enabledForFilesGlob = '*.{yaml,yml}',
+              diagnosticsLimit = 50,
+              showDiagnosticsDirectly = false,
+              path = 'yaml-language-server',
+              initTimeoutSeconds = 3,
+              config = {
+                schemas = {
+                  kubernetes = 'templates/**',
+                },
+                schemaStore = {
+                  enable = false,
+                  url = '',
+                },
+                completion = true,
+                hover = true,
+                -- any other config from https://github.com/redhat-developer/yaml-language-server#language-server-settings
+              },
+            },
+          },
+        },
+      },
       html = {},
       jsonls = {},
       jqls = {},

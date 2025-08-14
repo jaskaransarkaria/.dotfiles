@@ -1,5 +1,5 @@
 
-live_config_reload = true
+general.live_config_reload = true
 
 # Flow colorscheme | Alacritty
 # https://github.com/0xstepit/flow.nvim
@@ -48,14 +48,6 @@ text = '#0d0d0d'
 # Cursors
 # If you don't want to override original behavior, which is nice,
 # remove [colors.cursor] and [colors.vi_mode_cursor].
-[colors.cursor]
-cursor = '#ff007b'
-text = '#0d0d0d'
-
-[colors.vi_mode_cursor]
-cursor = '#ff007b'
-text = '#0d0d0d'
-
 [colors.footer_bar]
 foreground = '#ff007b'
 background = '#0d0d0d'

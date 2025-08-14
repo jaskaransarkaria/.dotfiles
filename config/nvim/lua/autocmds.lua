@@ -21,4 +21,26 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'terraform', 'hcl' },
 })
 
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { '*.yaml', '*.yml' },
+  callback = function(ev)
+    if vim.fn.search('# yaml-language-server: $schema=', 'nw') > 0 then
+      local modeline = vim.fn.getline(1)
+      vim.fn.setreg('z', modeline)
+      vim.fn.deletebufline(ev.buf, 1, 1)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = { '*.yaml', '*.yml' },
+  callback = function()
+    local str_modeline = vim.fn.getreg 'z'
+    local remove_newline = string.gsub(str_modeline, '[\n\r]', '')
+
+    vim.api.nvim_buf_set_lines(0, 0, 0, false, { remove_newline })
+    vim.fn.setreg('z', '')
+  end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
