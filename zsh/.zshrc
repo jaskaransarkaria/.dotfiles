@@ -68,8 +68,8 @@ zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 zstyle ':vcs_info:*' enable git
 
 # Prompt
-# PS1='%F{yellow}jaskaran %F{red}${$(kubectx -c | cut -d "/" -f 2)} %F{blue}${$(kubens -c)} %D{%L:%M:%S} %F{green}%c %F{yellow}→ %F{99} '
-PS1='%F{98}jaskaran %F{green}%c %F{yellow}→ %F{99} '
+PS1='%F{yellow}jaskaran %F{red}${$(kubectx -c | cut -d "/" -f 2)} %F{blue}${$(kubens -c)} %D{%L:%M:%S} %F{green}%c %F{yellow}→ %F{99} '
+# PS1='%F{98}jaskaran %F{green}%c %F{yellow}→ %F{99} '
 
 # Vi mode
 bindkey -v # switch between INSERT and NORMAL mode with `esc`
