@@ -50,4 +50,7 @@ vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Duplicate current buff
 vim.keymap.set('n', '<leader>pl', ':GetGithubPermalink<CR>', { desc = 'get the github permalink for the line under the cursor' })
 
 vim.keymap.set('n', '<leader>td', ':lua require("dap-go").debug_test()<CR>', { desc = 'debug this test nearest the cursor' })
+
+vim.keymap.set('n', '<leader>yss', ':lua require("custom.yaml-schema-select").init()<CR>', { desc = 'select a yaml schema' })
+
 -- vim: ts=2 sts=2 sw=2 et
