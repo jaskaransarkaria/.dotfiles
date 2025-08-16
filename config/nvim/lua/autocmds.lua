@@ -36,10 +36,12 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = { '*.yaml', '*.yml' },
   callback = function()
     local str_modeline = vim.fn.getreg 'z'
-    local remove_newline = string.gsub(str_modeline, '[\n\r]', '')
+    if string.find(str_modeline, '# yaml%-language%-server: %$schema=') then
+      local remove_newline = string.gsub(str_modeline, '[\n\r]', '')
 
-    vim.api.nvim_buf_set_lines(0, 0, 0, false, { remove_newline })
-    vim.fn.setreg('z', '')
+      vim.api.nvim_buf_set_lines(0, 0, 0, false, { remove_newline })
+      vim.fn.setreg('z', '')
+    end
   end,
 })
 
