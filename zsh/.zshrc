@@ -84,6 +84,7 @@ autoload -Uz git_current_branch
 autoload -Uz kexec-bash
 autoload -Uz kexec-sh
 autoload -Uz gfixup
+autoload -Uz gclcd
 autoload -Uz exec_node
 
 

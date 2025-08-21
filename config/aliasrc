@@ -7,3 +7,7 @@ alias cat="bat"
 alias ls="lsd -I Library"
 alias tree='nocorrect tree'
 alias n=nvim
+alias cdgds="cd ~/repos/gds/"
+alias cdinfra="cd ~/repos/gds/govuk-infrastructure/"
+alias cdhelm="cd ~/repos/gds/govuk-helm-charts/"
+alias cddocs="cd ~/repos/gds/govuk-developer-docs/"

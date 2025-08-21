@@ -135,6 +135,13 @@ return {
       -- pyright = {},
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
+      rubocop = {
+        cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+        -- capabilities = capabilities,
+        -- root_dir = require('lspconfig').util.root_pattern('Gemfile', '.git', '.'),
+        -- settings = {},
+      },
+      solargraph = {},
       ts_ls = {},
       cssls = {},
       bashls = {},
@@ -163,19 +170,6 @@ return {
               config = {
                 schemas = {
                   kubernetes = 'templates/**',
-                  -- ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
-                  -- ['http://json.schemastore.org/ansible-playbook'] = '*play*.{yml,yaml}',
-                  -- ['http://json.schemastore.org/chart'] = 'Chart.{yml,yaml}',
-                  -- ['https://json.schemastore.org/dependabot-v2'] = '.github/dependabot.{yml,yaml}',
-                  -- ['https://json.schemastore.org/gitlab-ci'] = '*gitlab-ci*.{yml,yaml}',
-                  -- ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*api*.{yml,yaml}',
-                  -- ['https://raw.githubusercontent.com/argoproj/argo-workflows/main/api/jsonschema/schema.json'] = 'workflow.{yaml,yml}',
-                  -- ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*',
-                  -- ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
-                  -- ['http://json.schemastore.org/ansible-stable-2.9'] = 'roles/tasks/*.{yml,yaml}',
-                  -- ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
-                  -- ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
-                  -- ['https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.33.3-standalone-strict/all.json']
                 },
                 schemaStore = {
                   enable = false,
@@ -231,6 +225,7 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
       -- 'ansible-lint',
+      'erb-formatter',
       'beautysh',
       'eslint_d',
       'jq',
@@ -243,6 +238,8 @@ return {
       'shellcheck',
       'sqlfluff',
       -- 'hadolint',
+      'htmlbeautifier',
+      'rubocop',
       'vale',
       'tflint',
     })

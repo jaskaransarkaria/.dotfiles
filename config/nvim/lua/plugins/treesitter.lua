@@ -19,6 +19,7 @@ return {
       'jq',
       'javascript',
       'json',
+      'ruby',
       'make',
       'markdown',
       'markdown_inline',
